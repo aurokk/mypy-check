@@ -5,7 +5,7 @@ branding:
   icon: 'check-square'
   color: 'blue'
 inputs:
-  working-directory:
+  working_directory:
     description: 'Working directory'
     required: false
     default: '/github/workspace'
@@ -39,5 +39,5 @@ runs:
       run: docker build ${{ github.action_path }} --build-arg "pyver=${{ inputs.python_version }}" -t mypy
       shell: bash
     - id: run
-      run: docker run --rm -v $(pwd):${{ inputs.working-directory }} --workdir ${{ inputs.working-directory }} mypy "${{ inputs.path }}" "${{ inputs.mypy_flags }}" "${{ inputs.requirements }}" "${{ inputs.requirements_file }}"
+      run: docker run --rm -v $(pwd):${{ inputs.working_directory }} --workdir ${{ inputs.working_directory }} mypy "${{ inputs.path }}" "${{ inputs.mypy_flags }}" "${{ inputs.requirements }}" "${{ inputs.requirements_file }}"
       shell: bash
